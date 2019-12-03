@@ -103,7 +103,7 @@ public class AuthRestAPIs {
 					HttpStatus.BAD_REQUEST);
 		}
 
-		// Creating user's account
+		
 		User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
 				encoder.encode(signUpRequest.getPassword()));
 
@@ -140,7 +140,7 @@ public class AuthRestAPIs {
 		
 		
 		final String username = "put_username_here";
-        final String password = "put_password_here";
+        	final String password = "put_password_here";
 
         Properties prop = new Properties();
 		
@@ -406,13 +406,13 @@ public class AuthRestAPIs {
             Transport.send(message);
 
             
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+            } catch (MessagingException e) {
+               e.printStackTrace();
+            }
 		
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
-	}
+	    }
 	
 	
 	
