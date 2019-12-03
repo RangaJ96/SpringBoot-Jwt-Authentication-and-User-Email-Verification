@@ -59,7 +59,7 @@ public class TestRestAPIs {
 	@PreAuthorize("hasRole('ADMIN')")
     	public List<User> getUsers() {
         return (List<User>) userRepository.findAll();
-    }
+   	 }
 	
 	@GetMapping("/users/{username}")
 	@PreAuthorize("hasRole('ADMIN')")
@@ -69,7 +69,7 @@ public class TestRestAPIs {
 		user.setEnabled(false);
 		userRepository.save(user);
         return "blocked";
-    }
+    	}
 	
 	@GetMapping("/finduser/{username}")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
@@ -353,7 +353,7 @@ public class TestRestAPIs {
             e.printStackTrace();
         }
         return user;
-    }
+   	}
 	
 	@GetMapping("/user/changePassword/{password}")
 	public String resetPassword(@PathVariable String password){
