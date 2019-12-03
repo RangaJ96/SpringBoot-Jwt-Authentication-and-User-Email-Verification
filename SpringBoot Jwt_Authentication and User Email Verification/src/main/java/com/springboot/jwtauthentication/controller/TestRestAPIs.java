@@ -57,13 +57,13 @@ public class TestRestAPIs {
 	
 	@GetMapping("/users")
 	@PreAuthorize("hasRole('ADMIN')")
-    public List<User> getUsers() {
+    	public List<User> getUsers() {
         return (List<User>) userRepository.findAll();
     }
 	
 	@GetMapping("/users/{username}")
 	@PreAuthorize("hasRole('ADMIN')")
-    public String blockUSer(@PathVariable String username) {
+    	public String blockUSer(@PathVariable String username) {
 		System.out.println("Function call");
 		User user=userRepository.findByUsername(username).get();
 		user.setEnabled(false);
@@ -73,16 +73,16 @@ public class TestRestAPIs {
 	
 	@GetMapping("/finduser/{username}")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public User findById(@PathVariable String username){
+    	public User findById(@PathVariable String username){
 		User user=userRepository.findByUsername(username).get();
         resetUser=user;
-ConfirmationToken confirmationToken = new ConfirmationToken(user);
+	ConfirmationToken confirmationToken = new ConfirmationToken(user);
 		
 		confirmationTokenRepository.save(confirmationToken);
 		
 		
 		final String authUsername = "put_username";
-        final String password = "put_password";
+        	final String password = "put_password";
 
         Properties prop = new Properties();
 		
