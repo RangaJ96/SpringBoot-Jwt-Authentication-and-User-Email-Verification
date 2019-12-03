@@ -61,14 +61,13 @@ public class TestRestAPIs {
         return (List<User>) userRepository.findAll();
    	 }
 	
-	@GetMapping("/users/{username}")
+	@GetMapping("/userBlock/{username}")
 	@PreAuthorize("hasRole('ADMIN')")
     	public String blockUSer(@PathVariable String username) {
-		System.out.println("Function call");
 		User user=userRepository.findByUsername(username).get();
 		user.setEnabled(false);
 		userRepository.save(user);
-        return "blocked";
+        	return "User_blocked";
     	}
 	
 	@GetMapping("/finduser/{username}")
