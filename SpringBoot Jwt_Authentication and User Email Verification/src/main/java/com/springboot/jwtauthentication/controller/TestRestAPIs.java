@@ -355,7 +355,7 @@ ConfirmationToken confirmationToken = new ConfirmationToken(user);
         return user;
     }
 	
-	@GetMapping("/api/test/{password}")
+	@GetMapping("/user/changePassword/{password}")
 	public String resetPassword(@PathVariable String password){
 		this.resetUser.setPassword(encoder.encode(password));
 		userRepository.save(this.resetUser);
@@ -379,7 +379,7 @@ ConfirmationToken confirmationToken = new ConfirmationToken(user);
 		else
 		{
 			model.addAttribute("attribute", "redirectWithRedirectPrefix");
-	        return new ModelAndView("redirect:http://localhost:4200/auth/login", model);
+	        return new ModelAndView("redirect:http://localhost:4200/errorPage", model);
 		}
 			
 	}
@@ -398,7 +398,7 @@ ConfirmationToken confirmationToken = new ConfirmationToken(user);
 		}
 		else{
 		model.addAttribute("attribute", "redirectWithRedirectPrefix");
-        return new ModelAndView("redirect:http://localhost:4200/resetPassword", model);
+        return new ModelAndView("redirect:http://localhost:4200/errorPage", model);
 		}
 	}
 	
