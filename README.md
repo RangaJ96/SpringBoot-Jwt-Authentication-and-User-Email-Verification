@@ -1,6 +1,6 @@
 # SpringBoot-Jwt-Authentication-and-User-Email-Verification
 
-Jwt Authentication in Spring Boot
+Jwt Authentication in Spring Boot,
 
 Spring Security.
 
